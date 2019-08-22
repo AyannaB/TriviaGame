@@ -7,21 +7,55 @@ let timer;
 
 //Create on click function to start game
 $("#start").on("click", function() {
-  $(".question").text(quizQuestions[0].questions);
-//Create for loop to loop through the quiz questions and start at the first one
-  for (var i = 0; i < quizQuestions[0].choices.length; i++) {
-    var choices = $("<div>");
-    choices.addClass(`${i}`);
-    choices.text(quizQuestions[0].choices[i]);
-    $(".options").append(choices);
+generateQuestion();
+});
+
+//Checks if the userAnswer = the actual answer
+$(document).on('click','.choices',function(){
+  let userAnswer = $(this).text();
+  console.log(userAnswer);
+  console.log('it works girl');
+
+  if(userAnswer == quizQuestions[currentQuestion-1].correctAnswer){
+    $(this).css("color", "green");
+    console.log('you got it!');
+    correct++;
+    
+  } else{
+    $(this).css("color", "red");
+    console.log('sis what?');
+    wrong++;
   }
+  setTimeout (generateQuestion,1000)
 });
 
-$('document').on('click',function(){
+//Generates the questions for the quiz
+function generateQuestion(){
+  if(quizQuestions.length > currentQuestion){
+    $(".question").text(quizQuestions[currentQuestion].questions);
+    $(".options").empty();
   
+  //Create for loop to loop through the quiz questions and start at the first one
+      for (var i = 0; i < quizQuestions[currentQuestion].choices.length; i++) {
+        var choices = $("<div>");
+        choices.addClass("choices");
+        choices.text(quizQuestions[currentQuestion].choices[i]);
+        $(".options").append(choices);
+      }
+      currentQuestion++;
+  } else{
+    generateResults();
+  }
 
-});
+}
 
+//Showing the results 
+  function generateResults(){
+    $('#game').hide();
+    $('.results').show();
+    $('.correct').append(correct);
+    $('.incorrect').append(wrong);
+  }
 //Create Questions
 const quizQuestions = [
   {
