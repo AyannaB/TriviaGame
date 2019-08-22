@@ -1,0 +1,23 @@
+
+body{ 
+    background-image: url("../images/solarSystem.jpg");
+    background-repeat: no-repeat;
+    background-position: fixed;
+    background-size: cover; 
+}
+.jumbotron{ 
+    color: white;
+    text-align: center;
+    background: rgba(209, 55, 55, 0.5);
+    margin-top: 10%;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 500px; 
+}
+.b{
+    margin-top: 20%;
+}
+#game{
+    color: white; 
+    margin-bottom: 20%;
+}
