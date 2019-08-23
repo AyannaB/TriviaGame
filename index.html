@@ -8,6 +8,7 @@
     <title>Trivia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/TriviaGame/assets/css/style.css">
 </head>
 
@@ -15,18 +16,16 @@
     <div class=container>
         <div class=jumbotron>
             <h1>Space Trivia!!</h1>
-            <div class=b>
-                <button id="start" type="button" class="btn btn-warning">Start Game!</button>
-            </div>
-            <h2 id=time></h2>
+                <b><button id="start" type="button" class="btn btn-warning">Start Game!</button></b>
             <div id=game>
-                <p class=question></p>
-
+                <p class="time"></p>
+                <u><p class=question></p></u>
                 <div class=options></div>
             </div>
             <div class = results>
-                <p class = correct>Correct:</p>
-                <p class = incorrect>Incorrect:</p>
+                <p class = correct></p>
+                <p class = incorrect></p>
+                <p class = notAnswered></p>
             </div>
 
         </div>
