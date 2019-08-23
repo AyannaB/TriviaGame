@@ -41,12 +41,9 @@ $(document).on('click','.choices',function(){
     }
     $(".choices").attr("data-answered", "answered");
     $(".choices").attr("disabled", true);
-  }else{
-
+    clearInterval(intervalId);
+    setTimeout (generateQuestion,1000)
   }
-
-  clearInterval(intervalId);
-  setTimeout (generateQuestion,1000)
 });
 
 //Generates the questions for the quiz
@@ -80,7 +77,7 @@ function timer(time){
 
   function count() {
 
-    // DONE: increment time by 1, remember we cant use "this" here.
+    // DONE: Decrease time by 1
     time--;
   
     // DONE: Get the current time, pass that into the timeConverter function,
